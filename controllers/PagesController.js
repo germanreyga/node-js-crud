@@ -2,7 +2,8 @@
 
 // Reglas para la respuesta para la petición "/"
 exports.homepage = (req, res) => {
-  res.send('Hello World!');
+  // Definimos la vista a responder. Nota que se usa la función "render" y no "send".
+  res.render('pages/homepage');
 }
 
 // Reglas para la respuesta para la petición "/about"
