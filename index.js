@@ -2,11 +2,13 @@
 let express = require('express');
 // Obtiene una instancia de express
 let app = express();
-// Establece que al hacer una petición GET a la ruta / se conteste
-// con las palabras "Hello World!"
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+
+// Importa las configuraciones
+let appRoutes = require('./routes/app');
+
+// Define que configuraciones de rutas se van a utilizar para la ruta
+app.use('/', appRoutes);
+
 // Comienza el servidor en el puerto 3000 de localhost
 // para ver el sistema
 app.listen(3000,() => {
