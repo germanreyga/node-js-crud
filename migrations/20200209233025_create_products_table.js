@@ -6,7 +6,7 @@ exports.up = function(knex) {
       table.string('name', 255).notNullable();
       table.string('description', 512).notNullable();
       table.float('price');
-      table.timestamps();
+      table.timestamps(true, true);
     });
 };
 
