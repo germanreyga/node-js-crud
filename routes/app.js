@@ -9,7 +9,7 @@ let PagesController = require("../controllers/PagesController");
 router.get("/", PagesController.homepage);
 
 // Petición para DELETE
-router.delete("/delete/:id");
+router.delete("/:id", PagesController.delete);
 
 // Identifica la ruta "/about" y la respuesta de la ruta
 router.get("/about", PagesController.about);

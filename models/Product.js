@@ -20,15 +20,15 @@ exports.allProducts = () => {
 
 // Elimina un producto de la base de datos
 // delete from `products` where `id` = id
-exports.deleteProduct = id => {
+exports.deleteProduct = (req, res) => {
   const id = req.params.id;
   if (typeof id == "undefined") {
     return false;
   } else {
-    knex
+    result = knex
       .from("products")
       .where("id", id)
       .del();
-    return true;
+    return result;
   }
 };

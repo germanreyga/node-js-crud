@@ -1,17 +1,24 @@
-// Importa el modelo de productos
+// Import 'Product' model
 let ProductModel = require("../models/Product");
 
-// Reglas para la respuesta para la petición "/"
+// Rules for HOMEPAGE (/) petition
 exports.homepage = (req, res) => {
   ProductModel.allProducts().then(data => {
-    // Guardamos los productos en una variable
-    let products = data;
-    // Enviamos los datos a la vista
+    // Save products (returned data) in a var
+    const products = data;
+    // Send data to view
     res.render("pages/homepage", { products: products });
   });
 };
 
-// Reglas para la respuesta para la petición "/about"
+// Rules for ABOUT petition
 exports.about = (req, res) => {
   res.send("About us");
+};
+
+// Rules for DELETE petition
+exports.delete = (req, res) => {
+  ProductModel.deleteProduct(req, res).then(data => {
+    res.render("pages/homepage");
+  });
 };

@@ -4,7 +4,8 @@
 <ul>
     {{#each products}}
     <li>
-        Nombre: {{name}} ($ {{price}})
+        Nombre: {{ name }} ($ {{ price }})
+        <input id='{{id}}' type='button' value='Eliminar {{ name }}' class='deleteProduct' />
     </li>
     {{/each}}
 </ul>
