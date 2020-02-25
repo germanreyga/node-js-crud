@@ -1,8 +1,12 @@
 # Hello MVC
 
-Proyecto básico que muestra como se implementa el patrón de diseño: MVC en Node.js. 
+Proyecto básico que muestra como se implementa el patrón de diseño: MVC en Node.js.
 
-Conoce más en: [Introducción a Node.js](https://github.com/minervatron/ldaw-lessons/blob/master/01%20-%20Hello%20MVC%20en%20Node.js.md)
+Usa Node.js, Express, Knex y MySQL
+
+## Créditos
+
+- Idea para construir el CRUD: http://appsbuilders.org/guides/build-a-full-stack-javascript-crud-app-with-node-express-handlebars-bootstrap-postgres-knex/
 
 ## Requerimientos
 
@@ -33,6 +37,7 @@ knex migrate:latest
 ```
 
 4. Ejecuta los seeds
+
 ```bash
 knex seed:run
 ```
