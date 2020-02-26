@@ -1,24 +1,31 @@
-// Import 'Product' model
 let ProductModel = require("../models/Product");
+var express = require("express");
+var router = express.Router();
 
-// Rules for HOMEPAGE (/) petition
+// GET petition for all products in no particular order
 exports.homepage = (req, res) => {
   ProductModel.allProducts().then(data => {
-    // Save products (returned data) in a var
     const products = data;
-    // Send data to view
     res.render("pages/homepage", { products: products });
   });
 };
 
-// Rules for ABOUT petition
-exports.about = (req, res) => {
-  res.send("About us");
+// POST petition to create a new product
+exports.create = (req, res) => {
+  const name = req.body.name;
+  const price = req.body.price;
+  const description = req.body.description;
+
+  ProductModel.createProduct(name, description, price, res).then(data => {
+    res.redirect("../");
+  });
 };
 
-// Rules for DELETE petition
+// DELETE petition for a specific product
 exports.delete = (req, res) => {
-  ProductModel.deleteProduct(req, res).then(data => {
+  const id = req.params.id;
+
+  ProductModel.deleteProduct(id).then(data => {
     res.render("pages/homepage");
   });
 };

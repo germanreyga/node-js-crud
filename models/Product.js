@@ -1,31 +1,30 @@
-// Obtiene la conexión con la base de datos
 const knex = require("../database/connection");
 
-// Idea y créditos para creación de aplicación CRUD
+// Idea gotten from
 // http://appsbuilders.org/guides/build-a-full-stack-javascript-crud-app-with-node-express-handlebars-bootstrap-postgres-knex/
 
-// Crea un nuevo Producto (pero no lo almacena en la base)
-exports.factory = (name, description, price) => {
-  return {
-    name: name,
-    description: description,
-    price: price
-  };
+// Creates a new product in the database
+// insert into `products` values (name, description, price)
+exports.createProduct = (name, description, price, res) => {
+  const result = knex
+    .from("products")
+    .insert({ name: name, description: description, price: price });
+  return result;
 };
 
-// Obtiene todos los productos en la base
+// Obtains all products from the database in no specific order
+// select * from `products`
 exports.allProducts = () => {
   return knex.from("products").select("*");
 };
 
-// Elimina un producto de la base de datos
+// Deletes a product from the database
 // delete from `products` where `id` = id
-exports.deleteProduct = (req, res) => {
-  const id = req.params.id;
+exports.deleteProduct = id => {
   if (typeof id == "undefined") {
     return false;
   } else {
-    result = knex
+    const result = knex
       .from("products")
       .where("id", id)
       .del();

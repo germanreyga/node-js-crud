@@ -1,4 +1,3 @@
-// Import jsdom and jQuery package
 var jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
@@ -11,6 +10,11 @@ let express = require("express");
 // Obtiene una instancia de express
 let app = express();
 
+// Import body-parser and use it
+bodyParser = require("body-parser");
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // Importa las configuraciones
 let appRoutes = require("./routes/app");
 
@@ -18,7 +22,8 @@ let appRoutes = require("./routes/app");
 app.use("/", appRoutes);
 
 // Static files service
-app.use("/js", express.static(__dirname + "/js"));
+app.use("/static", express.static(__dirname + "/static"));
+app.use("/bower_components", express.static(__dirname + "/bower_components"));
 
 // Configuraciones de las vistas
 let exphbs = require("express-handlebars");

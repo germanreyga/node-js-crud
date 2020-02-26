@@ -1,0 +1,17 @@
+.crud-logo {
+  max-height: 45px;
+}
+
+.productCard {
+  margin-bottom: 1rem;
+}
+
+.addProductForm {
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 1rem;
+}
+
+.addProduct {
+  margin-bottom: 1rem;
+}
