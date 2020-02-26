@@ -50,8 +50,18 @@ exports.create = (req, res) => {
 // DELETE petition for a specific product
 exports.delete = (req, res) => {
   const id = req.params.id;
-
   ProductModel.deleteProduct(id).then(data => {
+    res.render("pages/homepage");
+  });
+};
+
+// PUT petition to update a specific product
+exports.update = (req, res) => {
+  const id = req.params.id;
+  const name = req.body.name;
+  const description = req.body.description;
+  const price = req.body.price;
+  ProductModel.updateProduct(id, name, description, price).then(data => {
     res.render("pages/homepage");
   });
 };

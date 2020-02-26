@@ -17,3 +17,8 @@
 .searchProduct {
   margin-bottom: 1rem;
 }
+
+.modifyProduct,
+.deleteProduct {
+  margin-bottom: 0.5rem;
+}

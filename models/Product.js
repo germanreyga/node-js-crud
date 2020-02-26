@@ -12,6 +12,21 @@ exports.createProduct = (name, description, price, res) => {
   return result;
 };
 
+// Modifies an existing product in the database
+// update ´products´ set ´column1´=value1,´column2´=value2, ... where ´id´=id
+exports.updateProduct = (id, name, description, price) => {
+  const result = knex
+    .from("products")
+    .where("id", id)
+    .update({
+      name: name,
+      description: description,
+      price: price,
+      thisKeyIsSkipped: undefined
+    });
+  return result;
+};
+
 // Obtains the information of a specific product
 // select from `products` where ´id´=id
 exports.getProduct = id => {

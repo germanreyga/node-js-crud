@@ -30,11 +30,13 @@
             <div class=" card-body ">
                 <p class="card-text"><small class="text-muted">ID: {{ id }}</small></p>
                 <h5 class="card-title">Product:</h5>
-                <h4 class="card-title font-weight-bold">{{ name }}</h4>
-                <h6 class="card-subtitle mb-2 text-muted">${{ price }} MXN</h6>
-                <p class="card-text">{{ description }}</p>
+                <h4 class="card-title font-weight-bold originalname">{{ name }}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">$ <span class="originalprice">{{ price }}</span> MXN</h6>
+                <p class="card-text originaldescription">{{ description }}</p>
             </div>
             <div class="card-footer text-muted">
+                <input id='{{id}}' type='button' value='Update item' class='btn btn-success modifyProduct'
+                    name="modifyProduct" data-toggle="modal" data-target="#modifyProduct" />
                 <input id='{{id}}' type='button' value='Remove item' class='btn btn-danger deleteProduct'
                     name="deleteProduct" />
             </div>
@@ -82,5 +84,43 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modifyProduct" role="dialog">
+        <div class="modal-dialog">
 
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="modifyProductForm text-center">
+                        <div class="form-group text-left">
+                            <label for="updateid">ID</label>
+                            <input type="number" class="form-control" id="updateid" name="updateid" disabled>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="updatename">Name</label>
+                            <input type="text" class="form-control" id="updatename" name="updatename" required>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="updateprice">Price</label>
+                            <input type="number" step="0.01" class="form-control" id="updateprice" name="updateprice"
+                                required>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="updatedescription">Description</label>
+                            <textarea rows="2" class="form-control" id="updatedescription" name="updatedescription"
+                                required></textarea>
+                        </div>
+                        <input class="btn btn-primary updateProduct" value="Modify product" name="updateProduct" />
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
 </div>
