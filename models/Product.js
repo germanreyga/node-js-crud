@@ -12,6 +12,12 @@ exports.createProduct = (name, description, price, res) => {
   return result;
 };
 
+// Obtains the information of a specific product
+// select from `products` where ´id´=id
+exports.getProduct = id => {
+  return knex.from("products").where("id", id);
+};
+
 // Obtains all products from the database in no specific order
 // select * from `products`
 exports.allProducts = () => {

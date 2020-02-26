@@ -13,6 +13,22 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+  $(".searchProduct").on("click", function() {
+    var id = $("#searchID").val();
+    console.log(id);
+    const url = `/${id}`;
+    $.ajax({
+      url: url,
+      type: "GET",
+      data: { id: id },
+      success: function(response) {
+        window.location.href = url;
+      }
+    });
+  });
+});
+
+$(document).ready(function() {
   $(".addProduct").on("click", function() {
     location.reload();
   });
@@ -23,8 +39,6 @@ $(document).ready(function() {
     var name = $(".orderBy").val();
     var order = $(".orderAs").val();
     url = `/${name}/${order}`;
-    console.log(url);
-
     window.location.href = url;
   });
 });

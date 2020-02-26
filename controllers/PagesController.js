@@ -10,6 +10,22 @@ exports.homepage = (req, res) => {
   });
 };
 
+// GET petition for a specific product
+exports.get = (req, res) => {
+  const id = req.params.id;
+  ProductModel.getProduct(id).then(data => {
+    const products = data;
+    if (products.length == 0) {
+      const messages = ["No product matching said criteria"];
+      res.render("pages/homepage", {
+        messages: messages
+      });
+    } else {
+      res.render("pages/homepage", { products: products });
+    }
+  });
+};
+
 // GET petition for all products in a specific order
 exports.ordered = (req, res) => {
   const name = req.params.name;
