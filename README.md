@@ -1,49 +1,49 @@
-# Hello MVC
+# CRUD-Node-JS
 
-Proyecto básico que muestra como se implementa el patrón de diseño: MVC en Node.js.
+Basic full-stack project that implements MVC design pattern in a simple Node.js app.
 
-Usa Node.js, Express, Knex, MySQL, JQuery (AJAX) y Bootstrap
+Uses Node.js, Express, Knex, MySQL, JQuery (AJAX) y Bootstrap
 
-## Créditos
+## Requirements
 
-- Idea para construir el CRUD: http://appsbuilders.org/guides/build-a-full-stack-javascript-crud-app-with-node-express-handlebars-bootstrap-postgres-knex/
-
-## Requerimientos
-
-El sistema depende de que tengas [Knex.js](http://knexjs.org/) instalado de forma global.
+[Knex.js](http://knexjs.org/) is required to be installed globally.
 
 ```bash
 npm i knex -g
 ```
 
-## Instalación
+## Installation
 
-1. Guarda el archivo .env.example como .env y modifica las variables para que coincidan con tu ambiente
+1. Change .env.example extension to .env and modify environment variables
 
 ```bash
 cp .env.example .env
 ```
 
-2. Instala los paquetes indicados en el `package.json`
+2. Install dependencies declared on `package.json`
 
 ```bash
 npm install
 ```
 
-3. Ejecuta las migraciones
+3. Execute knex migrations
 
 ```bash
 knex migrate:latest
 ```
 
-4. Ejecuta los seeds
+4. Execute knex seeds
 
 ```bash
 knex seed:run
 ```
 
-5. Ejecuta el servidor de Node.js
+5. Start Node.js server
 
 ```bash
 node index.js
 ```
+
+## Credits
+
+Some CRUD implementation ideas: http://appsbuilders.org/guides/build-a-full-stack-javascript-crud-app-with-node-express-handlebars-bootstrap-postgres-knex/

@@ -1,89 +1,98 @@
-<div class="container">
-    <div class="row">
+<div class="container ">
+    <div>
         <div class="col-12 text-center">
             <h3>Our products</h3>
         </div>
-    </div>
-    <div class="row-cols-6 text-right">
-        <select class="browser-default custom-select orderBy">
-            <option disabled>Order by..</option>
-            <option value="name">Product name</option>
-            <option value="description">Product description</option>
-            <option value="price">Product price</option>
-        </select>
-        <select class="browser-default custom-select orderAs">
-            <option disabled>Order by..</option>
-            <option value="desc">Descending order</option>
-            <option value="asc">Ascending order</option>
-        </select>
-        <input type='button' value='Order' class='btn btn-primary orderButton' name="orderButton" />
-    </div>
-    <br>
-    {{#each messages}}
-    <div class="alert alert-warning" role="alert">
-        No product matching said criteria!
-    </div>
-    {{/each}}
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 productlist">
-        {{#each products}}
-        <div class="card text-center productCard">
-            <div class=" card-body ">
-                <p class="card-text"><small class="text-muted">ID: {{ id }}</small></p>
-                <h5 class="card-title">Product:</h5>
-                <h4 class="card-title font-weight-bold originalname">{{ name }}</h4>
-                <h6 class="card-subtitle mb-2 text-muted">$ <span class="originalprice">{{ price }}</span> MXN</h6>
-                <p class="card-text originaldescription">{{ description }}</p>
-            </div>
-            <div class="card-footer text-muted">
-                <input id='{{id}}' type='button' value='Update item' class='btn btn-success modifyProduct'
-                    name="modifyProduct" data-toggle="modal" data-target="#modifyProduct" />
-                <input id='{{id}}' type='button' value='Remove item' class='btn btn-danger deleteProduct'
-                    name="deleteProduct" />
-            </div>
+        <hr>
+        <div class="row-cols-6 text-right">
+            <select class="browser-default custom-select orderBy">
+                <option disabled>Order by..</option>
+                <option value="name">Product name</option>
+                <option value="description">Product description</option>
+                <option value="price">Product price</option>
+            </select>
+            <select class="browser-default custom-select orderAs">
+                <option disabled>Order by..</option>
+                <option value="desc">Descending order</option>
+                <option value="asc">Ascending order</option>
+            </select>
+            <input type='button' value='Order' class='btn btn-primary orderButton' name="orderButton" />
+        </div>
+        <br>
+        {{#each messages}}
+        <div class="alert alert-warning" role="alert">
+            No product matching said criteria!
         </div>
         {{/each}}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 productlist">
+            {{#each products}}
+            <div class="card text-center productCard">
+                <div class=" card-body ">
+                    <p class="card-text"><small class="text-muted">ID: {{ id }}</small></p>
+                    <h5 class="card-title">Product:</h5>
+                    <h4 class="card-title font-weight-bold originalname">{{ name }}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">$ <span class="originalprice">{{ price }}</span> MXN</h6>
+                    <p class="card-text originaldescription">{{ description }}</p>
+                </div>
+                <div class="card-footer text-muted">
+                    <input id='{{id}}' type='button' value='Update item' class='btn btn-success modifyProduct'
+                        name="modifyProduct" data-toggle="modal" data-target="#modifyProduct" />
+                    <input id='{{id}}' type='button' value='Remove item' class='btn btn-danger deleteProduct'
+                        name="deleteProduct" />
+                </div>
+            </div>
+            {{/each}}
+        </div>
     </div>
     <br>
-    <div class="row">
+    <div>
         <div class="col-12 text-center">
             <h3>Search for specific product</h3>
         </div>
-        <div class="col-12 text-center">
-            <div class="card text-center searchProductForm">
-                <div class="form-group text-left">
-                    <label for="name">ID</label>
-                    <input type="number" class="form-control" id="searchID" name="searchID" required>
+        <hr>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="card text-center searchProductForm">
+                    <div class="form-group text-left">
+                        <label for="name">ID</label>
+                        <input type="number" class="form-control" id="searchID" name="searchID" required>
+                    </div>
+                    <input type="submit" class="btn btn-primary searchProduct" value="Search product"
+                        name="searchProduct" />
                 </div>
-                <input type="submit" class="btn btn-primary searchProduct" value="Search product"
-                    name="searchProduct" />
             </div>
         </div>
     </div>
     <br>
-    <div class="row">
+    <div>
         <div class="col-12 text-center">
             <h3>Add your own product</h3>
         </div>
-        <div class="col-12 text-center">
-            <div class="card text-center addProductForm">
-                <form method="POST" action="/create" class="submitProduct">
-                    <div class="form-group text-left">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="price">Price</label>
-                        <input type="number" step="0.01" class="form-control" id="price" name="price" required>
-                    </div>
-                    <div class="form-group text-left">
-                        <label for="description">Description</label>
-                        <textarea rows="2" class="form-control" id="description" name="description" required></textarea>
-                    </div>
-                    <input type="submit" class="btn btn-primary addProduct" value="Add product" name="addProduct" />
-                </form>
+        <hr>
+        <div class="row">
+            <div class="col-12 text-center">
+                <div class="card text-center addProductForm">
+                    <form method="POST" action="/create" class="submitProduct">
+                        <div class="form-group text-left">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="price">Price</label>
+                            <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="description">Description</label>
+                            <textarea rows="2" class="form-control" id="description" name="description"
+                                required></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-primary addProduct" value="Add product" name="addProduct" />
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+    <br>
     <!-- Modal -->
     <div class="modal fade" id="modifyProduct" role="dialog">
         <div class="modal-dialog">
