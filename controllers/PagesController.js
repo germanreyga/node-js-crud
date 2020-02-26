@@ -10,6 +10,16 @@ exports.homepage = (req, res) => {
   });
 };
 
+// GET petition for all products in a specific order
+exports.ordered = (req, res) => {
+  const name = req.params.name;
+  const order = req.params.order;
+  ProductModel.allProductsOrdered(name, order).then(data => {
+    const products = data;
+    res.render("pages/homepage", { products: products });
+  });
+};
+
 // POST petition to create a new product
 exports.create = (req, res) => {
   const name = req.body.name;

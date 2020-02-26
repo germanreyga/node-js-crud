@@ -17,3 +17,14 @@ $(document).ready(function() {
     location.reload();
   });
 });
+
+$(document).ready(function() {
+  $(".orderButton").on("click", function() {
+    var name = $(".orderBy").val();
+    var order = $(".orderAs").val();
+    url = `/${name}/${order}`;
+    console.log(url);
+
+    window.location.href = url;
+  });
+});

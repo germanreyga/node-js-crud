@@ -4,7 +4,22 @@
             <h3>Our products</h3>
         </div>
     </div>
-    <div class=" row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 productlist">
+    <div class="row-cols-6 text-right">
+        <select class="browser-default custom-select orderBy">
+            <option disabled>Order by..</option>
+            <option value="name">Product name</option>
+            <option value="description">Product description</option>
+            <option value="price">Product price</option>
+        </select>
+        <select class="browser-default custom-select orderAs">
+            <option disabled>Order by..</option>
+            <option value="desc">Descending order</option>
+            <option value="asc">Ascending order</option>
+        </select>
+        <input type='button' value='Order' class='btn btn-primary orderButton' name="orderButton" />
+    </div>
+    <br>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-3 productlist">
         {{#each products}}
         <div class="card text-center productCard">
             <div class=" card-body ">

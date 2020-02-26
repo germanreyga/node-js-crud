@@ -18,6 +18,18 @@ exports.allProducts = () => {
   return knex.from("products").select("*");
 };
 
+// Obtains all products from the database in a specific order
+// select * from `products`
+exports.allProductsOrdered = (name, order) => {
+  if (typeof name != undefined && typeof order != undefined) {
+    const result = knex
+      .from("products")
+      .select("*")
+      .orderBy(name, order);
+    return result;
+  }
+};
+
 // Deletes a product from the database
 // delete from `products` where `id` = id
 exports.deleteProduct = id => {
